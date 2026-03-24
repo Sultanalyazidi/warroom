@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>غرفة الحرب — اليوم 24 · نافذة الـ5 أيام</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f0f2f5;--surface:#fff;--surface2:#f8f9fb;
+    --border:#e2e6ea;
+    --red:#c0392b;--red-bg:#fdf2f1;--red-bd:#f5c6c2;
+    --orange:#d35400;--org-bg:#fef5ee;--org-bd:#f5c6a0;
+    --yellow:#b7950b;--yel-bg:#fefce8;--yel-bd:#f0d060;
+    --green:#1a7a4a;--grn-bg:#edfaf3;--grn-bd:#a8dfc0;
+    --blue:#1a5fa8;--blu-bg:#eef5fd;--blu-bd:#a8c8f0;
+    --teal:#148f77;--teal-bg:#e8f8f5;--teal-bd:#a2d9ce;
+    --purple:#6c3483;--pur-bg:#f5eef8;--pur-bd:#d7bde2;
+    --heading:#1a202c;--text:#2c3e50;--text2:#4a5568;--muted:#7f8c9a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans Arabic',sans-serif;font-size:14px;line-height:1.7;min-height:100vh;}
+  .w{max-width:1400px;margin:0 auto;padding:20px;}
+
+.hdr{background:var(--heading);color:#fff;border-radius:12px;padding:15px 20px;margin-bottom:13px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.hl{display:flex;align-items:center;gap:12px;}
+.pulse{width:10px;height:10px;border-radius:50%;background:#2ecc71;animation:beat 1.4s infinite;flex-shrink:0;}
+@keyframes beat{0%,100%{box-shadow:0 0 0 3px rgba(46,204,113,.3);}50%{box-shadow:0 0 0 8px rgba(46,204,113,0);}}
+.ht{font-size:19px;font-weight:700;color:#fff;}
+.hs{font-family:'Courier Prime',monospace;font-size:10px;color:rgba(255,255,255,.5);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+.hr{text-align:left;font-family:'Courier Prime',monospace;font-size:11px;color:rgba(255,255,255,.5);}
+.hr span{display:block;color:#74b9ff;}
+
+.main-banner{background:linear-gradient(135deg,var(--teal-bg),var(--grn-bg));border:2px solid #68c98d;border-radius:12px;padding:15px 18px;margin-bottom:12px;display:flex;gap:14px;align-items:flex-start;box-shadow:0 2px 8px rgba(20,143,119,.1);}
+.mb-icon{font-size:28px;flex-shrink:0;}
+.mb-tag{font-family:'Courier Prime',monospace;font-size:10px;font-weight:700;letter-spacing:3px;color:var(--teal);margin-bottom:3px;}
+.mb-title{font-size:16px;font-weight:700;color:var(--heading);margin-bottom:4px;line-height:1.4;}
+.mb-body{font-size:13px;color:var(--text2);line-height:1.7;}
+.mb-body b{color:var(--heading);font-weight:600;}
+.mb-body .r{color:var(--red);font-weight:500;}
+.mb-body .g{color:var(--teal);font-weight:500;}
+.mb-body .y{color:var(--yellow);font-weight:500;}
+
+/* BREAKING UPDATE BANNER */
+.breaking{background:linear-gradient(135deg,var(--red-bg),#fff8f8);border:2px solid var(--red-bd);border-radius:12px;padding:13px 18px;margin-bottom:12px;display:flex;gap:14px;align-items:flex-start;box-shadow:0 2px 8px rgba(192,57,43,.08);}
+.brk-icon{font-size:22px;flex-shrink:0;}
+.brk-tag{font-family:'Courier Prime',monospace;font-size:10px;font-weight:700;letter-spacing:3px;color:var(--red);margin-bottom:3px;}
+.brk-title{font-size:14px;font-weight:700;color:var(--heading);margin-bottom:4px;line-height:1.4;}
+.brk-body{font-size:13px;color:var(--text2);line-height:1.7;}
+
+.countdown{background:var(--grn-bg);border:1.5px solid var(--grn-bd);border-radius:10px;padding:10px 16px;margin-bottom:12px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.cd-lbl{font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;flex-shrink:0;}
+.cd-val{font-family:'Courier Prime',monospace;font-size:22px;font-weight:700;color:var(--green);flex-shrink:0;}
+.cd-desc{font-size:13px;color:var(--text2);flex:1;line-height:1.5;}
+.cd-desc b{color:var(--heading);font-weight:600;}
+
+.surge{background:var(--grn-bg);border:1.5px solid var(--grn-bd);border-radius:10px;padding:9px 15px;margin-bottom:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.sg-lbl{font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;flex-shrink:0;}
+.sg-items{display:flex;gap:8px;flex-wrap:wrap;}
+.sg-item{background:#fff;border:1px solid var(--grn-bd);border-radius:6px;padding:4px 10px;text-align:center;}
+.sg-name{font-family:'Courier Prime',monospace;font-size:9px;color:var(--muted);}
+.sg-val{font-family:'Courier Prime',monospace;font-size:13px;font-weight:700;color:var(--green);}
+.sg-val.dn{color:var(--orange);}
+
+.ticker{background:var(--heading);border-radius:10px;padding:9px 15px;margin-bottom:13px;}
+.tkl{font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.5);margin-bottom:6px;text-transform:uppercase;}
+.tkr{display:flex;gap:5px;flex-wrap:wrap;}
+.ti{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:5px 9px;flex:1;min-width:105px;}
+.tn{font-size:10px;color:rgba(255,255,255,.5);letter-spacing:1px;font-family:'Courier Prime',monospace;white-space:nowrap;}
+.tp{font-family:'Courier Prime',monospace;font-size:13px;font-weight:700;color:#fff;margin-right:auto;}
+.tc{font-family:'Courier Prime',monospace;font-size:10px;font-weight:700;padding:2px 5px;border-radius:4px;}
+.up{color:#00b894;background:rgba(0,184,148,.2);}
+.dn2{color:#ff7675;background:rgba(255,118,117,.2);}
+.ne{color:#fdcb6e;background:rgba(253,203,110,.2);}
+
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px;margin-bottom:13px;}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-bottom:13px;}
+@media(max-width:900px){.g2,.g3,.g4{grid-template-columns:1fr;}}
+
+.card{background:var(--surface);border:1.5px solid var(--border);border-radius:10px;padding:15px;box-shadow:0 1px 4px rgba(0,0,0,.04);}
+.c-red{border-color:var(--red-bd);background:var(--red-bg);}
+.c-grn{border-color:var(--grn-bd);background:var(--grn-bg);}
+.c-teal{border-color:var(--teal-bd);background:var(--teal-bg);}
+.c-yel{border-color:var(--yel-bd);background:var(--yel-bg);}
+.c-org{border-color:var(--org-bd);background:var(--org-bg);}
+.c-blu{border-color:var(--blu-bd);background:var(--blu-bg);}
+
+.st{display:flex;align-items:center;gap:8px;margin-bottom:10px;padding-bottom:7px;border-bottom:1.5px solid var(--border);}
+.sl{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--heading);}
+.badge{font-family:'Courier Prime',monospace;font-size:9px;padding:2px 7px;border-radius:3px;font-weight:700;border:1px solid;}
+.br{color:var(--red);background:var(--red-bg);border-color:var(--red-bd);}
+.by{color:var(--yellow);background:var(--yel-bg);border-color:var(--yel-bd);}
+.bg{color:var(--green);background:var(--grn-bg);border-color:var(--grn-bd);}
+.bb{color:var(--blue);background:var(--blu-bg);border-color:var(--blu-bd);}
+.bo{color:var(--orange);background:var(--org-bg);border-color:var(--org-bd);}
+.bt{color:var(--teal);background:var(--teal-bg);border-color:var(--teal-bd);}
+
+.snap{display:flex;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.snap:last-child{border-bottom:none;}
+.sn{font-family:'Courier Prime',monospace;font-size:11px;padding-top:2px;flex-shrink:0;width:22px;font-weight:700;}
+.sn.r{color:var(--red);}
+.sn.g{color:var(--green);}
+.sn.y{color:var(--yellow);}
+.st2{font-size:13px;color:var(--text2);line-height:1.6;}
+.st2 strong{color:var(--heading);font-weight:600;}
+.ntag{display:inline-block;font-family:'Courier Prime',monospace;font-size:8px;background:var(--red-bg);color:var(--red);border:1px solid var(--red-bd);border-radius:3px;padding:1px 5px;vertical-align:middle;margin-right:4px;letter-spacing:1px;font-weight:700;}
+.gtag{display:inline-block;font-family:'Courier Prime',monospace;font-size:8px;background:var(--grn-bg);color:var(--green);border:1px solid var(--grn-bd);border-radius:3px;padding:1px 5px;vertical-align:middle;margin-right:4px;letter-spacing:1px;font-weight:700;}
+.ytag{display:inline-block;font-family:'Courier Prime',monospace;font-size:8px;background:var(--yel-bg);color:var(--yellow);border:1px solid var(--yel-bd);border-radius:3px;padding:1px 5px;vertical-align:middle;margin-right:4px;letter-spacing:1px;font-weight:700;}
+.otag{display:inline-block;font-family:'Courier Prime',monospace;font-size:8px;background:var(--org-bg);color:var(--orange);border:1px solid var(--org-bd);border-radius:3px;padding:1px 5px;vertical-align:middle;margin-right:4px;letter-spacing:1px;font-weight:700;}
+
+.big{background:var(--surface);border:1.5px solid var(--border);border-radius:10px;padding:13px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,.04);}
+.big.grn{border-color:var(--grn-bd);background:var(--grn-bg);}
+.big.red{border-color:var(--red-bd);background:var(--red-bg);}
+.big.org{border-color:var(--org-bd);background:var(--org-bg);}
+.bl{font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:5px;font-family:'Courier Prime',monospace;}
+.bv{font-family:'Courier Prime',monospace;font-size:25px;font-weight:700;line-height:1;margin-bottom:4px;}
+.bc{font-family:'Courier Prime',monospace;font-size:11px;font-weight:700;display:inline-block;padding:2px 8px;border-radius:4px;}
+.bc.up{color:var(--green);background:var(--grn-bg);}
+.bc.dn{color:var(--red);background:var(--red-bg);}
+.bc.ne{color:var(--yellow);background:var(--yel-bg);}
+.bs{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.5;}
+.bars{display:flex;align-items:flex-end;gap:2px;height:22px;margin-top:7px;}
+.bar{flex:1;border-radius:3px 3px 0 0;opacity:.7;}
+
+.intel{display:flex;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.intel:last-child{border-bottom:none;}
+.ii{font-size:15px;flex-shrink:0;padding-top:1px;}
+.it{font-size:13px;font-weight:600;color:var(--heading);margin-bottom:2px;}
+.id{font-size:12px;color:var(--text2);line-height:1.6;}
+
+.dip-table{width:100%;border-collapse:collapse;margin-bottom:10px;}
+.dip-table th{font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;padding:6px 8px;text-align:right;border-bottom:2px solid var(--border);background:var(--surface2);}
+.dip-table td{padding:8px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:middle;}
+.dip-table tr:last-child td{border-bottom:none;}
+.dip-table tr:hover td{background:var(--surface2);}
+
+.opp{border:1.5px solid var(--border);border-radius:8px;padding:11px;background:var(--surface2);margin-bottom:6px;}
+.oh{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;}
+.on{font-size:13px;font-weight:600;color:var(--heading);}
+.tag{font-family:'Courier Prime',monospace;font-size:9px;font-weight:700;letter-spacing:1px;padding:2px 7px;border-radius:3px;border:1px solid;}
+.tbuy{color:var(--green);background:var(--grn-bg);border-color:var(--grn-bd);}
+.tsell{color:var(--red);background:var(--red-bg);border-color:var(--red-bd);}
+.twat{color:var(--blue);background:var(--blu-bg);border-color:var(--blu-bd);}
+.thold{color:var(--yellow);background:var(--yel-bg);border-color:var(--yel-bd);}
+.od{font-size:12px;color:var(--text2);line-height:1.6;}
+.of{font-family:'Courier Prime',monospace;font-size:10px;color:var(--muted);margin-top:4px;display:flex;gap:10px;}
+.of span{color:var(--text);font-weight:600;}
+
+.sc{margin-bottom:11px;}
+.sct{display:flex;align-items:center;gap:10px;margin-bottom:5px;}
+.sp{font-family:'Courier Prime',monospace;font-size:20px;font-weight:700;min-width:48px;flex-shrink:0;}
+.str{flex:1;height:5px;background:var(--border);border-radius:3px;overflow:hidden;}
+.sf{height:100%;border-radius:3px;}
+.fo{background:linear-gradient(90deg,#27ae60,#2ecc71);}
+.fb{background:linear-gradient(90deg,#2980b9,#3498db);}
+.fr{background:linear-gradient(90deg,#e74c3c,#e67e22);}
+.fy{background:linear-gradient(90deg,#e67e22,#f39c12);}
+.fp{background:linear-gradient(90deg,#8e44ad,#9b59b6);}
+.sn2{font-size:13px;font-weight:600;color:var(--heading);}
+.sd{font-size:12px;color:var(--text2);line-height:1.6;}
+
+.al{display:flex;align-items:flex-start;gap:9px;padding:7px 0;border-bottom:1px solid var(--border);}
+.al:last-child{border-bottom:none;}
+.dot{width:9px;height:9px;border-radius:50%;margin-top:5px;flex-shrink:0;}
+.dg{background:var(--green);}
+.dr{background:var(--red);}
+.dy{background:#e67e22;}
+.at{font-size:13px;color:var(--text2);line-height:1.5;}
+.at strong{color:var(--heading);font-weight:600;}
+
+.ct{display:grid;grid-template-columns:1fr 1fr 90px;gap:8px;padding:7px 8px;border-bottom:1px solid var(--border);font-size:12px;align-items:center;}
+.ct.hd{background:var(--surface2);border-radius:6px 6px 0 0;font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;font-weight:700;}
+.ct:last-child{border-bottom:none;}
+.cs{color:var(--text2);}
+.cr2{color:var(--orange);font-weight:500;}
+.vrd{font-family:'Courier Prime',monospace;font-size:9px;font-weight:700;padding:3px 6px;border-radius:3px;text-align:center;border:1px solid;}
+.vl{color:var(--red);background:var(--red-bg);border-color:var(--red-bd);}
+.vp{color:var(--orange);background:var(--org-bg);border-color:var(--org-bd);}
+.vy{color:var(--blue);background:var(--blu-bg);border-color:var(--blu-bd);}
+.vg{color:var(--green);background:var(--grn-bg);border-color:var(--grn-bd);}
+.vn{color:var(--purple);background:var(--pur-bg);border-color:var(--pur-bd);}
+
+.sig{display:flex;gap:9px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--border);}
+.sig:last-child{border-bottom:none;}
+.stag{font-family:'Courier Prime',monospace;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;flex-shrink:0;margin-top:3px;letter-spacing:1px;border:1px solid;}
+.ss{color:var(--green);background:var(--grn-bg);border-color:var(--grn-bd);}
+.sno{color:var(--yellow);background:var(--yel-bg);border-color:var(--yel-bd);}
+.stxt{font-size:13px;color:var(--text2);line-height:1.6;}
+
+.mt{width:100%;border-collapse:collapse;}
+.mt th{font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;padding:6px 8px;text-align:right;border-bottom:2px solid var(--border);background:var(--surface2);}
+.mt td{padding:8px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:middle;}
+.mt tr:last-child td{border-bottom:none;}
+.mt tr:hover td{background:var(--surface2);}
+.an{color:var(--heading);font-weight:600;}
+.cu{font-family:'Courier Prime',monospace;color:var(--green);font-weight:700;}
+.cd{font-family:'Courier Prime',monospace;color:var(--red);font-weight:700;}
+.nn{font-size:11px;color:var(--muted);}
+
+.div{border:none;border-top:1.5px solid var(--border);margin:10px 0;}
+</style>
+</head>
+<body>
+
+<div class="w">
+
+<div class="hdr">
+  <div class="hl">
+    <div class="pulse"></div>
+    <div>
+      <div class="ht">غرفة الحرب 🔥 يوم 24</div>
+      <div class="hs">نافذة الـ5 أيام</div>
+    </div>
+  </div>
+  <div class="hr">
+    12:00 UTC · 24/03/2026<span>الحدث: إغلاق مضيق هرمز</span>
+  </div>
+</div>
+
+<div class="breaking">
+  <div class="brk-icon">⚠️</div>
+  <div>
+    <div class="brk-tag">عاجل</div>
+    <div class="brk-title">مضيق هرمز مغلق بالكامل منذ فبراير — النفط فوق 110$</div>
+    <div class="brk-body">تهديدات ترامب لمحطات الطاقة الإيرانية تثير تقلبات السوق. البيتكوين والعملات المشفرة تنخفض بشدة وسط الصراع المستمر.</div>
+  </div>
+</div>
+
+<div class="ticker">
+  <div class="tkl">أسعار لحظية</div>
+  <div class="tkr">
+    <div class="ti">
+      <div class="tn">WTI</div>
+      <div class="tp">$110.84</div>
+      <div class="tc up">+8.2%</div>
+    </div>
+    <div class="ti">
+      <div class="tn">BTC</div>
+      <div class="tp">$52,340</div>
+      <div class="tc dn2">-12.4%</div>
+    </div>
+    <div class="ti">
+      <div class="tn">XRP</div>
+      <div class="tp">$0.48</div>
+      <div class="tc dn2">-18.6%</div>
+    </div>
+    <div class="ti">
+      <div class="tn">GOLD</div>
+      <div class="tp">$2,285</div>
+      <div class="tc up">+4.1%</div>
+    </div>
+    <div class="ti">
+      <div class="tn">S&P</div>
+      <div class="tp">4,892</div>
+      <div class="tc dn2">-3.8%</div>
+    </div>
+  </div>
+</div>
+
+<div class="g3">
+  <div class="big red">
+    <div class="bl">نفط خام غرب تكساس</div>
+    <div class="bv">$110.84</div>
+    <div class="bc up">+8.2%</div>
+    <div class="bs">أعلى مستوى منذ 2014<br>مضيق هرمز مغلق</div>
+  </div>
+  
+  <div class="big red">
+    <div class="bl">بيتكوين</div>
+    <div class="bv">$52,340</div>
+    <div class="bc dn">-12.4%</div>
+    <div class="bs">انهيار بسبب الحرب<br>فيد يؤجل خفض الفوائد</div>
+  </div>
+  
+  <div class="big grn">
+    <div class="bl">ذهب</div>
+    <div class="bv">$2,285</div>
+    <div class="bc up">+4.1%</div>
+    <div class="bs">ملاذ آمن<br>طلب قوي من المستثمرين</div>
+  </div>
+</div>
+
+<div class="g2">
+  <div class="card c-red">
+    <div class="st">
+      <div class="sl">تطورات عسكرية</div>
+      <div class="badge br">حرجة</div>
+    </div>
+    
+    <div class="snap">
+      <div class="sn r">11:45</div>
+      <div class="st2">ترامب يمهل إيران <strong>48 ساعة</strong> لإعادة فتح مضيق هرمز أو سيستهدف محطات الطاقة</div>
+    </div>
+    
+    <div class="snap">
+      <div class="sn r">10:30</div>
+      <div class="st2">إيران ترفض المفاوضات وتحذر من <span class="ntag">رد قاس</span> على أي هجوم على البنية التحتية المدنية</div>
+    </div>
+    
+    <div class="snap">
+      <div class="sn y">08:15</div>
+      <div class="st2">مضيق هرمز <strong>مغلق بالكامل</strong> منذ أواخر فبراير — 20% من النفط العالمي محاصر</div>
+    </div>
+  </div>
+
+  <div class="card c-grn">
+    <div class="st">
+      <div class="sl">أسواق الطاقة</div>
+      <div class="badge bg">صاعدة</div>
+    </div>
+    
+    <div class="snap">
+      <div class="sn g">11:50</div>
+      <div class="st2"><strong>برنت $112.40</strong> — ارتفاع 9.1% بعد تهديدات ترامب لمحطات الكهرباء الإيرانية</div>
+    </div>
+    
+    <div class="snap">
+      <div class="sn g">09:20</div>
+      <div class="st2">احتياطيات النفط الاستراتيجية الأمريكية تنخفض إلى <strong>350 مليون برميل</strong> — أقل مستوى منذ 1984</div>
+    </div>
+    
+    <div class="snap">
+      <div class="sn g">07:45</div>
+      <div class="st2">السعودية والإمارات ترفعان الإنتاج بـ<span class="gtag">1.2 مليون برميل/يوم</span> لتعويض النقص</div>
+    </div>
+  </div>
+</div>
+
+<div class="g2">
+  <div class="card c-red">
+    <div class="st">
+      <div class="sl">عملات
