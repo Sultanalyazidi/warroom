@@ -199,132 +199,137 @@
 .nn{font-size:11px;color:var(--muted);}
 
 .div{border:none;border-top:1.5px solid var(--border);margin:10px 0;}
-.sub{font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:2px;color:var(--muted);margin-bottom:7px;text-transform:uppercase;}
+.sub{font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:2px;color:var(--muted);margin-bottom:8px;text-transform:uppercase;}
+
+.war-tracker{background:var(--red-bg);border:2px solid var(--red-bd);border-radius:10px;padding:12px;margin-bottom:12px;text-align:center;}
+.wt-day{font-family:'Courier Prime',monospace;font-size:28px;font-weight:700;color:var(--red);line-height:1;}
+.wt-label{font-size:11px;color:var(--text2);margin-top:2px;}
+
+@media(max-width:700px){
+  .w{padding:15px;}
+  .hdr{padding:12px 15px;}
+  .ht{font-size:16px;}
+  .g2,.g3,.g4{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
-
 <div class="w">
-  
-<!-- HEADER -->
+
 <div class="hdr">
   <div class="hl">
     <div class="pulse"></div>
     <div>
-      <div class="ht">غرفة الحرب — لايف تراكر</div>
-      <div class="hs">منذ بداية الصراع</div>
+      <div class="ht">غرفة الحرب — الحرب الإيرانية الأمريكية</div>
+      <div class="hs">19:55 UTC · 24/03/2026</div>
     </div>
   </div>
   <div class="hr">
-    <span>17:30 UTC · 24/03/2026</span>
+    DAY <span>15</span><br>
+    <span>LIVE</span>
   </div>
 </div>
 
-<!-- BREAKING BANNER -->
 <div class="breaking">
-  <div class="brk-icon">🚨</div>
+  <div class="brk-icon">🔥</div>
   <div>
-    <div class="brk-tag">BREAKING DEVELOPMENT</div>
-    <div class="brk-title">ترامب يؤجل ضربات محطات الكهرباء الإيرانية لـ5 أيام بعد محادثات "منتجة"</div>
-    <div class="brk-body">أعلن الرئيس الأمريكي تأجيل العمليات العسكرية المخططة ضد البنية التحتية الإيرانية عقب محادثات وصفها بـ"المنتجة جداً" مع طهران. النفط يهبط 12% في دقائق</div>
+    <div class="brk-tag">عاجل</div>
+    <div class="brk-title">ترامب يؤجل ضربات محطات الكهرباء الإيرانية وسط تقارير عن محادثات</div>
+    <div class="brk-body">الأسواق تصعد بقوة بعد إعلان ترامب تأجيل الهجمات على إيران. إيران تنفي وجود مفاوضات. مضيق هرمز يبقى نقطة التوتر الرئيسية.</div>
   </div>
 </div>
 
-<!-- TIME UNTIL CEASEFIRE WINDOW -->
-<div class="countdown">
-  <div class="cd-lbl">نافذة التهدئة تنتهي خلال:</div>
-  <div class="cd-val">4D 06H</div>
-  <div class="cd-desc">إذا لم تحقق المحادثات الأمريكية-الإيرانية تقدماً ملموساً، قد تستأنف العمليات العسكرية ضد <b>محطات الطاقة الإيرانية</b></div>
+<div class="main-banner">
+  <div class="mb-icon">📈</div>
+  <div>
+    <div class="mb-tag">تحديث السوق</div>
+    <div class="mb-title">انتعاش تاريخي للأسواق بعد أنباء المحادثات</div>
+    <div class="mb-body">
+      <b>S&P 500</b> يقفز <span class="g">+3%</span> بعد أن كان منخفضاً -1%. 
+      <b>داو جونز</b> يرتفع <span class="g">1000 نقطة</span>. 
+      أسعار النفط <span class="r">تهوي</span> مع آمال انتهاء الحرب.
+    </div>
+  </div>
 </div>
 
-<!-- SURGE TRACKER -->
 <div class="surge">
-  <div class="sg-lbl">تأثير تأجيل الضربات:</div>
+  <div class="sg-lbl">أداء الأسواق</div>
   <div class="sg-items">
     <div class="sg-item">
-      <div class="sg-name">CRUDE</div>
-      <div class="sg-val dn">-12%</div>
-    </div>
-    <div class="sg-item">
-      <div class="sg-name">BRENT</div>
-      <div class="sg-val dn">-10%</div>
-    </div>
-    <div class="sg-item">
       <div class="sg-name">S&P</div>
-      <div class="sg-val">+3%</div>
+      <div class="sg-val">+3.0%</div>
     </div>
     <div class="sg-item">
-      <div class="sg-name">USD/IRR</div>
-      <div class="sg-val dn">-8%</div>
+      <div class="sg-name">DOW</div>
+      <div class="sg-val">+1000</div>
+    </div>
+    <div class="sg-item">
+      <div class="sg-name">NASDAQ</div>
+      <div class="sg-val">+3.0%</div>
+    </div>
+    <div class="sg-item">
+      <div class="sg-name">OIL</div>
+      <div class="sg-val dn">-8.2%</div>
     </div>
   </div>
 </div>
 
-<!-- MARKET TICKER -->
 <div class="ticker">
-  <div class="tkl">أسعار لحظية · مؤشر التقلب عالي</div>
+  <div class="tkl">أسعار السوق</div>
   <div class="tkr">
     <div class="ti">
-      <div class="tn">CRUDE</div>
-      <div class="tp">$88.13</div>
-      <div class="tc dn2">-12.3%</div>
-    </div>
-    <div class="ti">
-      <div class="tn">BRENT</div>
-      <div class="tp">$99.94</div>
-      <div class="tc dn2">-10.1%</div>
-    </div>
-    <div class="ti">
       <div class="tn">BTC</div>
-      <div class="tp">$71,240</div>
-      <div class="tc up">+4.2%</div>
+      <div class="tp">$67,420</div>
+      <div class="tc up">+2.1%</div>
+    </div>
+    <div class="ti">
+      <div class="tn">OIL</div>
+      <div class="tp">$92.30</div>
+      <div class="tc dn2">-8.2%</div>
     </div>
     <div class="ti">
       <div class="tn">GOLD</div>
-      <div class="tp">$2,195</div>
-      <div class="tc dn2">-1.8%</div>
+      <div class="tp">$2,186</div>
+      <div class="tc dn2">-1.5%</div>
     </div>
     <div class="ti">
-      <div class="tn">S&P 500</div>
-      <div class="tp">5,438</div>
-      <div class="tc up">+2.9%</div>
+      <div class="tn">S&P</div>
+      <div class="tp">5,241</div>
+      <div class="tc up">+3.0%</div>
     </div>
   </div>
 </div>
 
-<!-- 3-COL LAYOUT -->
 <div class="g3">
-
-<!-- STRAIT STATUS -->
-<div class="card c-red">
-  <div class="st">
-    <div class="sl">مضيق هرمز</div>
-    <div class="badge br">مغلق جزئياً</div>
+  <div class="big grn">
+    <div class="bl">مؤشر الخوف</div>
+    <div class="bv" style="color:var(--green);">18.7</div>
+    <div class="bc dn">-12.8</div>
+    <div class="bs">انخفاض حاد في مستوى الذعر</div>
   </div>
-  <div class="snap">
-    <div class="sn r">⚠</div>
-    <div class="st2">إيران تواصل فرض <strong>إغلاق فعلي</strong> للممر الحيوي مع استمرار وضع ألغام بحرية</div>
+  
+  <div class="big red">
+    <div class="bl">أسعار النفط</div>
+    <div class="bv" style="color:var(--red);">$92.30</div>
+    <div class="bc dn">-8.2%</div>
+    <div class="bs">أكبر انخفاض منذ بداية الحرب</div>
   </div>
-  <div class="snap">
-    <div class="sn y">📊</div>
-    <div class="st2">أكثر من <strong>12 مليون برميل يومياً</strong> خارج الخدمة منذ أسبوع</div>
-  </div>
-  <div class="snap">
-    <div class="sn g">🚢</div>
-    <div class="st2">عدد محدود من الناقلات تعبر تحت <strong>حماية بحرية أمريكية مكثفة</strong></div>
+  
+  <div class="big grn">
+    <div class="bl">داو جونز</div>
+    <div class="bv" style="color:var(--green);">39,847</div>
+    <div class="bc up">+1000</div>
+    <div class="bs">قفزة تاريخية</div>
   </div>
 </div>
 
-<!-- WAR SENTIMENT -->
-<div class="card c-yel">
-  <div class="st">
-    <div class="sl">مؤشر الحرب</div>
-    <div class="badge by">ذروة الهلع قادمة</div>
-  </div>
-  <div class="snap">
-    <div class="sn y">📈</div>
-    <div class="st2">محللو Alpine Macro يتوقعون <strong>"ذروة هلع الحرب"</strong> خلال 1-3 أسابيع</div>
-  </div>
-  <div class="snap">
-    <div class="sn r">🎯</div>
-    <div class="st2">ترامب "غير راضٍ" عن اتفاقية وقف إطلاق نار شاملة حسب مص
+<div class="g2">
+  <div class="card c-grn">
+    <div class="st">
+      <div class="sl">تطورات سياسية</div>
+      <div class="badge bg">إيجابي</div>
+    </div>
+    
+    <div class="snap">
+      <div class="sn g">1</div>
+      <div class="st2"><strong>
