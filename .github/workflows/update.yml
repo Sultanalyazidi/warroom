@@ -1,0 +1,42 @@
+name: War Room Auto-Update
+
+on:
+  schedule:
+    # كل ساعة = 24 تشغيل/يوم × 30 يوم = 720 بحث/شهر (ضمن الـ 1,000 مجاني)
+    - cron: '0 * * * *'
+  workflow_dispatch:
+    # زر "تشغيل يدوي" في GitHub — لا يُحسب من الـ 1,000
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run updater
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TAVILY_API_KEY:    ${{ secrets.TAVILY_API_KEY }}
+          NETLIFY_SITE_ID:   ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_TOKEN:     ${{ secrets.NETLIFY_TOKEN }}
+        run: python update.py
+
+      - name: Commit updated HTML
+        run: |
+          git config user.name  "War Room Bot"
+          git config user.email "bot@warroom.local"
+          git add docs/index.html
+          git diff --staged --quiet || git commit -m "⚔️ Auto-update $(date -u '+%H:%M UTC')"
+          git push
