@@ -1,6 +1,6 @@
 """
 غرفة الحرب — محدِّث تلقائي كل ساعة
-ينشر على GitHub Pages مباشرة — بدون Netlify
+يحافظ على التصميم الأصلي ويحدث المحتوى فقط
 """
 
 import os
@@ -41,36 +41,41 @@ def fetch_news():
         print(f"  ⚠️ خطأ: {e}")
         return ""
 
-def read_current_html():
-    if os.path.exists("index.html"):
+def read_template():
+    # يقرأ الـ template الأصلي دائماً
+    if os.path.exists("template.html"):
+        with open("template.html", "r", encoding="utf-8") as f:
+            return f.read()
+    elif os.path.exists("index.html"):
         with open("index.html", "r", encoding="utf-8") as f:
             return f.read()
     return ""
 
-def generate_updated_html(news, current_html):
+def generate_updated_html(news, template):
     print("🤖 تحديث بـ Claude...")
     now_ar = datetime.utcnow().strftime("%H:%M UTC · %d/%m/%Y")
-    prompt = f"""أنت محرر HTML متخصص. مهمتك تحديث النصوص والأرقام فقط في هذا الداشبورد.
+
+    prompt = f"""أنت محرر HTML متخصص. لديك داشبورد HTML ومهمتك تحديث النصوص والأرقام فقط.
 
 الوقت الحالي: {now_ar}
 
 === آخر الأخبار ===
 {news}
 
-=== قواعد صارمة جداً ===
-1. لا تغيّر CSS أبداً — لا تحذف ولا تضيف أي style
-2. لا تغيّر هيكل HTML أبداً — لا تحذف ولا تضيف divs أو classes
-3. فقط غيّر النصوص داخل العناصر الموجودة
-4. فقط غيّر الأرقام (أسعار النفط، BTC، الذهب، S&P)
-5. فقط غيّر التاريخ والوقت في الـ header إلى: {now_ar}
+=== قواعد صارمة جداً — يجب اتباعها حرفياً ===
+1. احتفظ بكل CSS كما هو — لا تحذف ولا تضيف أي style أو class
+2. احتفظ بنفس هيكل HTML تماماً — نفس الـ divs ونفس الـ classes
+3. غيّر فقط النصوص داخل العناصر الموجودة بناءً على الأخبار الجديدة
+4. غيّر التاريخ والوقت في الـ header إلى: {now_ar}
+5. غيّر أسعار الأسواق (BTC، نفط، ذهب، S&P) بالأرقام الجديدة إذا وجدت في الأخبار
 6. إذا كان هناك خبر عاجل — غيّر نص الـ Breaking Banner الموجود فقط
-7. احتفظ بنفس الداشبورد حرفاً بحرف ما عدا النصوص والأرقام
+7. لا تُنشئ sections جديدة أو تحذف sections موجودة
+8. الناتج يجب أن يبدأ بـ <!DOCTYPE html> وينتهي بـ </html>
 
-=== الداشبورد الحالي ===
-{current_html[:15000]}
+=== الداشبورد (لا تغير هيكله) ===
+{template[:15000]}
 
-أعطِ HTML الكامل فقط — بدون أي شرح.
-ابدأ مباشرة بـ <!DOCTYPE html>"""
+أعطِ HTML الكامل فقط بدون أي شرح."""
 
     r = requests.post(
         "https://api.anthropic.com/v1/messages",
@@ -98,7 +103,7 @@ def generate_updated_html(news, current_html):
         return html.strip()
     else:
         print(f"  ❌ خطأ Claude: {data}")
-        return current_html
+        return template
 
 def save_html(html):
     with open("index.html", "w", encoding="utf-8") as f:
@@ -109,9 +114,9 @@ def main():
     print(f"\n{'='*50}")
     print(f"⚔️  War Room — {datetime.utcnow().strftime('%H:%M UTC')}")
     print(f"{'='*50}\n")
-    news         = fetch_news()
-    current_html = read_current_html()
-    new_html     = generate_updated_html(news, current_html)
+    news     = fetch_news()
+    template = read_template()
+    new_html = generate_updated_html(news, template)
     save_html(new_html)
     print("\n✅ اكتمل!\n")
 
