@@ -1,16 +1,14 @@
 """
 غرفة الحرب — محدِّث تلقائي كل ساعة
+ينشر على GitHub Pages مباشرة — بدون Netlify
 """
 
 import os
-import hashlib
 import requests
 from datetime import datetime
 
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
 TAVILY_API_KEY    = os.environ["TAVILY_API_KEY"]
-NETLIFY_SITE_ID   = os.environ["NETLIFY_SITE_ID"]
-NETLIFY_TOKEN     = os.environ["NETLIFY_TOKEN"]
 
 SEARCH_QUERY = (
     "Iran US war latest update ceasefire deal negotiations "
@@ -28,7 +26,6 @@ def fetch_news():
                 "search_depth": "advanced",
                 "max_results": 8,
                 "include_answer": True,
-                "include_raw_content": False,
             },
             timeout=20,
         )
@@ -37,9 +34,7 @@ def fetch_news():
         if data.get("answer"):
             results.append(f"[ملخص]\n{data['answer']}")
         for item in data.get("results", []):
-            results.append(
-                f"• {item.get('title','')}\n  {item.get('content','')[:400]}"
-            )
+            results.append(f"• {item.get('title','')}\n  {item.get('content','')[:400]}")
         print(f"  ✅ {len(results)} نتيجة")
         return "\n\n".join(results)
     except Exception as e:
@@ -47,9 +42,8 @@ def fetch_news():
         return ""
 
 def read_current_html():
-    path = "index.html"
-    if os.path.exists(path):
-        with open(path, "r", encoding="utf-8") as f:
+    if os.path.exists("index.html"):
+        with open("index.html", "r", encoding="utf-8") as f:
             return f.read()
     return ""
 
@@ -68,7 +62,7 @@ def generate_updated_html(news, current_html):
 2. لا تغيّر هيكل HTML أبداً — لا تحذف ولا تضيف divs أو classes
 3. فقط غيّر النصوص داخل العناصر الموجودة
 4. فقط غيّر الأرقام (أسعار النفط، BTC، الذهب، S&P)
-5. فقط غيّر التاريخ والوقت في الـ header
+5. فقط غيّر التاريخ والوقت في الـ header إلى: {now_ar}
 6. إذا كان هناك خبر عاجل — غيّر نص الـ Breaking Banner الموجود فقط
 7. احتفظ بنفس الداشبورد حرفاً بحرف ما عدا النصوص والأرقام
 
@@ -77,6 +71,7 @@ def generate_updated_html(news, current_html):
 
 أعطِ HTML الكامل فقط — بدون أي شرح.
 ابدأ مباشرة بـ <!DOCTYPE html>"""
+
     r = requests.post(
         "https://api.anthropic.com/v1/messages",
         headers={
@@ -110,43 +105,6 @@ def save_html(html):
         f.write(html)
     print("💾 تم حفظ index.html")
 
-def deploy_to_netlify():
-    print("🚀 رفع على Netlify...")
-    try:
-        with open("index.html", "rb") as f:
-            file_bytes = f.read()
-        sha1 = hashlib.sha1(file_bytes).hexdigest()
-        headers = {
-            "Authorization": f"Bearer {NETLIFY_TOKEN}",
-            "Content-Type": "application/json",
-        }
-        r = requests.post(
-            f"https://api.netlify.com/api/v1/sites/{NETLIFY_SITE_ID}/deploys",
-            headers=headers,
-            json={"files": {"/index.html": sha1}},
-            timeout=30,
-        )
-        deploy = r.json()
-        deploy_id = deploy.get("id")
-        required  = deploy.get("required", [])
-        if not deploy_id:
-            print(f"  ❌ خطأ Netlify: {deploy}")
-            return
-        if sha1 in required:
-            r2 = requests.put(
-                f"https://api.netlify.com/api/v1/deploys/{deploy_id}/files/index.html",
-                headers={
-                    "Authorization": f"Bearer {NETLIFY_TOKEN}",
-                    "Content-Type": "text/html",
-                },
-                data=file_bytes,
-                timeout=60,
-            )
-            print(f"  رفع الملف: {r2.status_code}")
-        print(f"  ✅ نُشر! Deploy ID: {deploy_id}")
-    except Exception as e:
-        print(f"  ❌ خطأ: {e}")
-
 def main():
     print(f"\n{'='*50}")
     print(f"⚔️  War Room — {datetime.utcnow().strftime('%H:%M UTC')}")
@@ -155,7 +113,6 @@ def main():
     current_html = read_current_html()
     new_html     = generate_updated_html(news, current_html)
     save_html(new_html)
-    deploy_to_netlify()
     print("\n✅ اكتمل!\n")
 
 if __name__ == "__main__":
