@@ -7,8 +7,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
   update:
@@ -31,10 +29,10 @@ jobs:
           TAVILY_API_KEY:    ${{ secrets.TAVILY_API_KEY }}
         run: python update.py
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
-          publish_branch: gh-pages
-          include_files: index.html
+      - name: Push updated HTML
+        run: |
+          git config user.name "War Room Bot"
+          git config user.email "bot@warroom.local"
+          git add index.html
+          git diff --staged --quiet || git commit -m "⚔️ Auto-update $(date -u '+%H:%M UTC')"
+          git push origin main
