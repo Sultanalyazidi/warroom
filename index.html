@@ -199,137 +199,132 @@
 .nn{font-size:11px;color:var(--muted);}
 
 .div{border:none;border-top:1.5px solid var(--border);margin:10px 0;}
-.sub{font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:2px;color:var(--muted);margin-bottom:8px;text-transform:uppercase;}
-
-.war-tracker{background:var(--red-bg);border:2px solid var(--red-bd);border-radius:10px;padding:12px;margin-bottom:12px;text-align:center;}
-.wt-day{font-family:'Courier Prime',monospace;font-size:28px;font-weight:700;color:var(--red);line-height:1;}
-.wt-label{font-size:11px;color:var(--text2);margin-top:2px;}
-
-@media(max-width:700px){
-  .w{padding:15px;}
-  .hdr{padding:12px 15px;}
-  .ht{font-size:16px;}
-  .g2,.g3,.g4{grid-template-columns:1fr;}
-}
+.sub{font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:2px;color:var(--muted);margin-bottom:7px;text-transform:uppercase;}
 </style>
 </head>
+
 <body>
 <div class="w">
+  
+  <div class="hdr">
+    <div class="hl">
+      <div class="pulse"></div>
+      <div>
+        <div class="ht">غرفة الحرب — الأسواق</div>
+        <div class="hs">IRAN WAR · DAY 15</div>
+      </div>
+    </div>
+    <div class="hr">
+      21:55 UTC · 24/03/2026<br>
+      <span>LIVE UPDATES</span>
+    </div>
+  </div>
 
-<div class="hdr">
-  <div class="hl">
-    <div class="pulse"></div>
+  <div class="breaking">
+    <div class="brk-icon">🚨</div>
     <div>
-      <div class="ht">غرفة الحرب — الحرب الإيرانية الأمريكية</div>
-      <div class="hs">19:55 UTC · 24/03/2026</div>
+      <div class="brk-tag">BREAKING</div>
+      <div class="brk-title">الأسواق الأمريكية تهبط مع ارتفاع أسعار النفط واستمرار عدم اليقين حول الحرب</div>
+      <div class="brk-body">تستمر التذبذبات في الأسواق الأمريكية بينما أسعار النفط ترتفع مع غموض مفاوضات أمريكا وإيران ولا وقف إطلاق نار فوري في الأفق</div>
     </div>
   </div>
-  <div class="hr">
-    DAY <span>15</span><br>
-    <span>LIVE</span>
-  </div>
-</div>
 
-<div class="breaking">
-  <div class="brk-icon">🔥</div>
-  <div>
-    <div class="brk-tag">عاجل</div>
-    <div class="brk-title">ترامب يؤجل ضربات محطات الكهرباء الإيرانية وسط تقارير عن محادثات</div>
-    <div class="brk-body">الأسواق تصعد بقوة بعد إعلان ترامب تأجيل الهجمات على إيران. إيران تنفي وجود مفاوضات. مضيق هرمز يبقى نقطة التوتر الرئيسية.</div>
+  <div class="ticker">
+    <div class="tkl">LIVE MARKETS</div>
+    <div class="tkr">
+      <div class="ti">
+        <span class="tn">S&P</span>
+        <span class="tp">5,247</span>
+        <span class="tc dn2">-0.37%</span>
+      </div>
+      <div class="ti">
+        <span class="tn">DOW</span>
+        <span class="tp">39,315</span>
+        <span class="tc dn2">-0.18%</span>
+      </div>
+      <div class="ti">
+        <span class="tn">NASDAQ</span>
+        <span class="tp">16,340</span>
+        <span class="tc dn2">-0.84%</span>
+      </div>
+      <div class="ti">
+        <span class="tn">OIL</span>
+        <span class="tp">$168</span>
+        <span class="tc dn2">-4.29%</span>
+      </div>
+      <div class="ti">
+        <span class="tn">GAS</span>
+        <span class="tp">$8.42</span>
+        <span class="tc dn2">-0.31%</span>
+      </div>
+    </div>
   </div>
-</div>
 
-<div class="main-banner">
-  <div class="mb-icon">📈</div>
-  <div>
-    <div class="mb-tag">تحديث السوق</div>
-    <div class="mb-title">انتعاش تاريخي للأسواق بعد أنباء المحادثات</div>
-    <div class="mb-body">
-      <b>S&P 500</b> يقفز <span class="g">+3%</span> بعد أن كان منخفضاً -1%. 
-      <b>داو جونز</b> يرتفع <span class="g">1000 نقطة</span>. 
-      أسعار النفط <span class="r">تهوي</span> مع آمال انتهاء الحرب.
+  <div class="g3">
+    <div class="card c-red">
+      <div class="st">
+        <span class="sl">مؤشرات الأسواق</span>
+        <span class="badge br">FALLING</span>
+      </div>
+      <div class="snap">
+        <div class="sn r">📉</div>
+        <div class="st2">مؤشر <strong>S&P 500</strong> يهبط 0.37% بعد تذبذب طوال اليوم</div>
+      </div>
+      <div class="snap">
+        <div class="sn r">📊</div>
+        <div class="st2">مؤشر <strong>داو جونز</strong> ينخفض 0.18% وسط ضغوط الطاقة</div>
+      </div>
+      <div class="snap">
+        <div class="sn r">💻</div>
+        <div class="st2">مؤشر <strong>NASDAQ</strong> يتراجع 0.84% مع تأثر أسهم التكنولوجيا</div>
+      </div>
     </div>
-  </div>
-</div>
 
-<div class="surge">
-  <div class="sg-lbl">أداء الأسواق</div>
-  <div class="sg-items">
-    <div class="sg-item">
-      <div class="sg-name">S&P</div>
-      <div class="sg-val">+3.0%</div>
+    <div class="card c-org">
+      <div class="st">
+        <span class="sl">أسعار الطاقة</span>
+        <span class="badge bo">VOLATILE</span>
+      </div>
+      <div class="snap">
+        <div class="sn y">🛢️</div>
+        <div class="st2">النفط الخام يهبط 4.29% وسط <strong>آمال اتفاق إيراني</strong></div>
+      </div>
+      <div class="snap">
+        <div class="sn y">⛽</div>
+        <div class="st2"><strong>12 مليون برميل</strong> يومياً خارج الخدمة منذ إغلاق الهرمز</div>
+      </div>
+      <div class="snap">
+        <div class="sn r">📈</div>
+        <div class="st2">الغاز الطبيعي ينخفض 0.31% مع تقلبات السوق</div>
+      </div>
     </div>
-    <div class="sg-item">
-      <div class="sg-name">DOW</div>
-      <div class="sg-val">+1000</div>
-    </div>
-    <div class="sg-item">
-      <div class="sg-name">NASDAQ</div>
-      <div class="sg-val">+3.0%</div>
-    </div>
-    <div class="sg-item">
-      <div class="sg-name">OIL</div>
-      <div class="sg-val dn">-8.2%</div>
-    </div>
-  </div>
-</div>
 
-<div class="ticker">
-  <div class="tkl">أسعار السوق</div>
-  <div class="tkr">
-    <div class="ti">
-      <div class="tn">BTC</div>
-      <div class="tp">$67,420</div>
-      <div class="tc up">+2.1%</div>
-    </div>
-    <div class="ti">
-      <div class="tn">OIL</div>
-      <div class="tp">$92.30</div>
-      <div class="tc dn2">-8.2%</div>
-    </div>
-    <div class="ti">
-      <div class="tn">GOLD</div>
-      <div class="tp">$2,186</div>
-      <div class="tc dn2">-1.5%</div>
-    </div>
-    <div class="ti">
-      <div class="tn">S&P</div>
-      <div class="tp">5,241</div>
-      <div class="tc up">+3.0%</div>
+    <div class="card c-yel">
+      <div class="st">
+        <span class="sl">المفاوضات</span>
+        <span class="badge by">UNCERTAIN</span>
+      </div>
+      <div class="snap">
+        <div class="sn y">🤝</div>
+        <div class="st2"><strong>نافذة صغيرة</strong> مفتوحة لمحادثات أمريكا وإيران</div>
+      </div>
+      <div class="snap">
+        <div class="sn y">💬</div>
+        <div class="st2">تواصل أولي بين <strong>عراقجي وويتكوف</strong> لكن طهران ترى خداعاً</div>
+      </div>
+      <div class="snap">
+        <div class="sn r">⏰</div>
+        <div class="st2">ترامب يحدد مهلة الاثنين لإيران لإعادة فتح <strong>هرمز</strong></div>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="g3">
-  <div class="big grn">
-    <div class="bl">مؤشر الخوف</div>
-    <div class="bv" style="color:var(--green);">18.7</div>
-    <div class="bc dn">-12.8</div>
-    <div class="bs">انخفاض حاد في مستوى الذعر</div>
-  </div>
-  
-  <div class="big red">
-    <div class="bl">أسعار النفط</div>
-    <div class="bv" style="color:var(--red);">$92.30</div>
-    <div class="bc dn">-8.2%</div>
-    <div class="bs">أكبر انخفاض منذ بداية الحرب</div>
-  </div>
-  
-  <div class="big grn">
-    <div class="bl">داو جونز</div>
-    <div class="bv" style="color:var(--green);">39,847</div>
-    <div class="bc up">+1000</div>
-    <div class="bs">قفزة تاريخية</div>
-  </div>
-</div>
-
-<div class="g2">
-  <div class="card c-grn">
-    <div class="st">
-      <div class="sl">تطورات سياسية</div>
-      <div class="badge bg">إيجابي</div>
-    </div>
-    
-    <div class="snap">
-      <div class="sn g">1</div>
-      <div class="st2"><strong>
+  <div class="g2">
+    <div class="card c-teal">
+      <div class="st">
+        <span class="sl">التأثير الاقتصادي</span>
+        <span class="badge bt">CRITICAL</span>
+      </div>
+      <div class="snap">
+        <div class="sn r">💰</div>
+        <div class="st2">ارتفاع أسعار النفط والبنزين يقلل <strong>القوة
