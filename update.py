@@ -54,7 +54,7 @@ def fetch_news():
 
 # ── 2. قراءة آخر HTML ─────────────────────────────────────────────────────
 def read_current_html():
-    path = "docs/index.html"
+    path = "index.html"
     if os.path.exists(path):
         with open(path, "r", encoding="utf-8") as f:
             return f.read()
@@ -120,7 +120,7 @@ def generate_updated_html(news: str, current_html: str) -> str:
 # ── 4. حفظ الملف ─────────────────────────────────────────────────────────
 def save_html(html: str):
     os.makedirs("docs", exist_ok=True)
-    with open("docs/index.html", "w", encoding="utf-8") as f:
+   with open("index.html", "w", encoding="utf-8") as f:
         f.write(html)
     print("💾 تم حفظ الملف في docs/index.html")
 
