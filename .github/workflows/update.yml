@@ -2,15 +2,12 @@ name: War Room Auto-Update
 
 on:
   schedule:
-    # كل ساعة = 24 تشغيل/يوم × 30 يوم = 720 بحث/شهر (ضمن الـ 1,000 مجاني)
     - cron: '0 * * * *'
   workflow_dispatch:
-    # زر "تشغيل يدوي" في GitHub — لا يُحسب من الـ 1,000
 
 jobs:
   update:
     runs-on: ubuntu-latest
-    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -39,4 +36,5 @@ jobs:
           git config user.email "bot@warroom.local"
           git add index.html
           git diff --staged --quiet || git commit -m "⚔️ Auto-update $(date -u '+%H:%M UTC')"
+          git pull --rebase origin main
           git push
